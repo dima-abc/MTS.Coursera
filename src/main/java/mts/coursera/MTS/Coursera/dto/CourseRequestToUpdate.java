@@ -1,5 +1,6 @@
 package mts.coursera.MTS.Coursera.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -12,6 +13,8 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class CourseRequestToUpdate {
+    @NotBlank(message = "Course author has to be filled")
     private String author;
+    @NotBlank(message = "Course title has to be filled")
     private String title;
 }

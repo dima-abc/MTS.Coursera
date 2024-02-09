@@ -10,6 +10,6 @@ public class CourseApp {
 
     public static void main(String[] args) {
         SpringApplication.run(CourseApp.class, args);
-        log.info("Go TO page: http://localhos:8080");
+        log.info("Go TO page: http://localhos:45000");
     }
 }

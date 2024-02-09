@@ -17,5 +17,7 @@ public interface CourseRepository {
 
     Optional<Course> findById(Long id);
 
+    List<Course> findByTitlePrefix(String prefix);
+
     boolean delete(Long id);
 }

@@ -10,12 +10,13 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Collectors;
 
 /**
  * @author Dmitry Stepanov, user Dmitry
  * @since 08.02.2024
  */
-@Repository
+@Repository("courseRepositoryMem")
 @Primary
 public class CourseRepositoryMem implements CourseRepository {
     private final AtomicLong keys = new AtomicLong(0);
@@ -44,6 +45,13 @@ public class CourseRepositoryMem implements CourseRepository {
     @Override
     public Optional<Course> findById(Long id) {
         return Optional.ofNullable(storage.get(id));
+    }
+
+    @Override
+    public List<Course> findByTitlePrefix(String prefix) {
+        return storage.values().stream()
+                .filter(course -> course.getTitle().startsWith(prefix))
+                .collect(Collectors.toList());
     }
 
     @Override
