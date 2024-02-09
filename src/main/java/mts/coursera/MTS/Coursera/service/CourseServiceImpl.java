@@ -7,6 +7,7 @@ import mts.coursera.MTS.Coursera.repository.CourseRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Dmitry Stepanov, user Dmitry
@@ -15,11 +16,26 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 @Slf4j
-public class CourseServiceImpl implements CourseService{
+public class CourseServiceImpl implements CourseService {
     private final CourseRepository repository;
+
+    @Override
+    public Course save(Course course) {
+        return repository.save(course);
+    }
 
     @Override
     public List<Course> findAll() {
         return repository.findAll();
+    }
+
+    @Override
+    public Optional<Course> findById(Long id) {
+        return repository.findById(id);
+    }
+
+    @Override
+    public boolean delete(Long id) {
+        return repository.delete(id);
     }
 }

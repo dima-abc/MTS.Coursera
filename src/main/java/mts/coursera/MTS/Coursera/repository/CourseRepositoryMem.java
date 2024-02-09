@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -28,7 +29,25 @@ public class CourseRepositoryMem implements CourseRepository {
     }
 
     @Override
+    public Course save(Course course) {
+        if (course.getId() == 0) {
+            course.setId(keys.incrementAndGet());
+        }
+        return storage.put(course.getId(), course);
+    }
+
+    @Override
     public List<Course> findAll() {
         return new ArrayList<>(storage.values());
+    }
+
+    @Override
+    public Optional<Course> findById(Long id) {
+        return Optional.ofNullable(storage.get(id));
+    }
+
+    @Override
+    public boolean delete(Long id) {
+        return storage.remove(id) != null;
     }
 }
