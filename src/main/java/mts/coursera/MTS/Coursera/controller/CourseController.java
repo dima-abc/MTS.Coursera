@@ -28,7 +28,7 @@ public class CourseController {
     }
 
     @GetMapping("/{id}")
-    public Course getCourse(@Min(value = 1) @PathVariable("id") Long id) {
+    public Course getCourse(@PathVariable("id") Long id) {
         return courseService.findById(id).orElseThrow();
     }
 
@@ -39,7 +39,7 @@ public class CourseController {
     }
 
     @PutMapping("/{id}")
-    public void updateCourse(@Min(value = 1) @PathVariable("id") Long id, @Valid @RequestBody CourseRequestToUpdate request) {
+    public void updateCourse(@PathVariable("id") Long id, @Valid @RequestBody CourseRequestToUpdate request) {
         Course course = courseService.findById(id).orElseThrow();
         course.setAuthor(request.getAuthor());
         course.setTitle(request.getTitle());

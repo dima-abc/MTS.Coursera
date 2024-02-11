@@ -3,6 +3,7 @@ package mts.coursera.MTS.Coursera.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Dmitry Stepanov, user Dmitry
@@ -10,6 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Course {
     @EqualsAndHashCode.Include
