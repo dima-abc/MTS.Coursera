@@ -19,5 +19,5 @@ public interface CourseService {
 
     List<Course> findByTitleWithPrefix(String prefix);
 
-    boolean delete(Long id);
+    void delete(Long id);
 }
