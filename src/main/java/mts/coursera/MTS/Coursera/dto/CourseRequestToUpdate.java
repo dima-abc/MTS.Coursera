@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import mts.coursera.MTS.Coursera.validation.TitleCase;
 
 /**
  * DTO модель для редактирования Course
@@ -15,7 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CourseRequestToUpdate {
-    @NotBlank(message = "Course author has to be filled")
+    @TitleCase(titleLang = "EN", message = "Field error language")
     private String author;
     @NotBlank(message = "Course title has to be filled")
     private String title;

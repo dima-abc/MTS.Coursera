@@ -27,10 +27,10 @@ public class ApiError {
 
     @Override
     public String toString() {
-        return "ApiError{" +
-               "dateOccurred=" + dateOccurred.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME) +
-               ", message='" + message + '\'' +
-               ", type='" + type + '\'' +
-               '}';
+        return "ApiError{"
+               + "dateOccurred=" + dateOccurred.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME)
+               + ", message='" + message + '\''
+               + ", type='" + type + '\''
+               + '}';
     }
 }
