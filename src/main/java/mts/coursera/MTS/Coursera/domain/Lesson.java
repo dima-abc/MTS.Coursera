@@ -25,4 +25,9 @@ public class Lesson implements Serializable {
     private Long id;
     @Column(name = "name")
     private String name;
+    @Lob
+    @Column(name = "text")
+    private String text;
+    @ManyToOne(optional = false)
+    private Course course;
 }
