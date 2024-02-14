@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import mts.coursera.MTS.Coursera.domain.Course;
 import mts.coursera.MTS.Coursera.repository.CourseRepositoryDB;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +20,7 @@ import java.util.Optional;
 public class CourseServiceImpl implements CourseService {
     private final CourseRepositoryDB repository;
 
+    @Transactional
     @Override
     public Course save(Course course) {
         return repository.save(course);
@@ -36,7 +38,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public List<Course> findByTitleWithPrefix(String prefix) {
-        return repository.findByTitleStartingWith(prefix);
+        return repository.findByTitleLike(prefix + "%");
     }
 
     @Override

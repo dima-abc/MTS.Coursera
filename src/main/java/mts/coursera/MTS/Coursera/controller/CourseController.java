@@ -34,7 +34,7 @@ public class CourseController {
 
     @PostMapping("")
     public Course createCourse(@Valid @RequestBody CourseRequestToCreate request) {
-        Course course = new Course(0, request.getAuthor(), request.getTitle());
+        Course course = new Course(0L, request.getAuthor(), request.getTitle());
         return courseService.save(course);
     }
 

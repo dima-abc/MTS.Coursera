@@ -10,21 +10,19 @@ import java.io.Serializable;
 
 /**
  * @author Dmitry Stepanov, user Dmitry
- * @since 08.02.2024
+ * @since 13.02.2024
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "course", schema = "mts")
-public class Course implements Serializable {
+@Table(name = "lesson")
+public class Lesson implements Serializable {
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "author", nullable = false)
-    private String author;
-    @Column(name = "title", nullable = false)
-    private String title;
+    @Column(name = "name")
+    private String name;
 }

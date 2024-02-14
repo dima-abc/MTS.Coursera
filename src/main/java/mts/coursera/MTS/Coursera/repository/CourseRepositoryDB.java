@@ -13,5 +13,5 @@ import java.util.List;
 @Repository
 public interface CourseRepositoryDB extends JpaRepository<Course, Long> {
 
-    List<Course> findByTitleStartingWith(String prefix);
+    List<Course> findByTitleLike(String title);
 }
