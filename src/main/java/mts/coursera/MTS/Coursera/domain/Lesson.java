@@ -9,6 +9,14 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
+ * Модель Lesson - урок в модуле (задание).
+ * String title - название.
+ * String text - описание.
+ * DateUser create - дата и автор создания.
+ * DateUser change - дата и время изменения.
+ * DateUser remove - дата и время удаления.
+ * String content - контент.
+ *
  * @author Dmitry Stepanov, user Dmitry
  * @since 13.02.2024
  */
@@ -23,8 +31,8 @@ public class Lesson implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "name")
-    private String name;
+    @Column(name = "title")
+    private String title;
     @Lob
     @Column(name = "text")
     private String text;
