@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="160202024" author="dima_abc">
+        <createTable tableName="rating" schemaName="my_courses">
+            <column name="id" type="bigserial" autoIncrement="true">
+                <constraints unique="true" nullable="false" primaryKey="true"/>
+            </column>
+            <column name="user_id" type="bigserial">
+                <constraints nullable="false"
+                             referencedTableSchemaName="my_courses"
+                             referencedTableName="user"
+                             referencedColumnNames="id"
+                             foreignKeyName="fk_rating_user"/>
+            </column>
+            <column name="course_id" type="bigserial">
+                <constraints nullable="false"
+                             referencedTableSchemaName="my_courses"
+                             referencedTableName="course"
+                             referencedColumnNames="id"
+                             foreignKeyName="fk_rating_course"/>
+            </column>
+            <column name="rating" type="int"/>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

@@ -34,6 +34,7 @@ public class Module implements Serializable {
     private Long id;
     @Column(name = "title")
     private String title;
+    @Lob
     @Column(name = "description")
     private String description;
     @Column(name = "create", nullable = false)

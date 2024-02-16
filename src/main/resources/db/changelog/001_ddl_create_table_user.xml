@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet id="16022024_001" author="dima_abc">
+        <createTable tableName="user" schemaName="my_courses">
+            <column name="id" autoIncrement="true" type="bigserial">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="nick_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+            <column name="name_surname" type="varchar(255)"/>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="avatar" type="varchar(255)"/>
+            <column name="create" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="change" type="date"/>
+            <column name="remove" type="date"/>
+            <column name="access_admin" type="boolean" defaultValueBoolean="false"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

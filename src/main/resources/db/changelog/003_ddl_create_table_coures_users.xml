@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet id="16022024_003" author="dima_abc">
+        <createTable tableName="courses_users" schemaName="my_courses">
+            <column name="id" type="bigserial" autoIncrement="true">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="bigserial">
+                <constraints nullable="false"
+                             referencedTableSchemaName="my_courses"
+                             referencedTableName="user"
+                             referencedColumnNames="id"
+                             foreignKeyName="fk_courses_users_user"/>
+            </column>
+            <column name="course_id" type="bigserial">
+                <constraints nullable="false"
+                             referencedTableSchemaName="my_courses"
+                             referencedTableName="course"
+                             referencedColumnNames="id"
+                             foreignKeyName="fk_courses_users_course"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint schemaName="my_courses"
+                             tableName="courses_users"
+                             columnNames="course_id, user_id"
+                             constraintName="uc_course_id_user_id"/>
+    </changeSet>
+</databaseChangeLog>

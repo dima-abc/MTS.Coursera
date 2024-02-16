@@ -34,8 +34,8 @@ public class Lesson implements Serializable {
     @Column(name = "title")
     private String title;
     @Lob
-    @Column(name = "text")
-    private String text;
+    @Column(name = "description")
+    private String description;
     @Column(name = "content")
     private String content;
     @ManyToOne(optional = false)

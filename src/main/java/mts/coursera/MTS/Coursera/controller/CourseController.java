@@ -34,14 +34,14 @@ public class CourseController {
 
     @PostMapping("")
     public Course createCourse(@Valid @RequestBody CourseRequestToCreate request) {
-        Course course = new Course(0L, request.getAuthor(), request.getTitle());
-        return courseService.save(course);
+       // Course course = new Course(0L, request.getAuthor(), request.getTitle());
+        return courseService.save(null);
     }
 
     @PutMapping("/{id}")
     public void updateCourse(@PathVariable("id") Long id, @Valid @RequestBody CourseRequestToUpdate request) {
         Course course = courseService.findById(id).orElseThrow();
-        course.setAuthor(request.getAuthor());
+       // course.setAuthor(request.getAuthor());
         course.setTitle(request.getTitle());
         courseService.save(course);
     }

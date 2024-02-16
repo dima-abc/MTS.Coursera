@@ -8,17 +8,22 @@
 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
 http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
 http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
-    <changeSet id="13022024001" author="dima_abc">
+    <changeSet id="16022024_002" author="dima_abc">
         <createTable tableName="course" schemaName="my_courses">
-            <column name="id" autoIncrement="true" type="bigserial">
-                <constraints unique="true" nullable="false" primaryKey="true"/>
+            <column name="id" type="bigserial" autoIncrement="true">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
             </column>
-            <column name="author" type="varchar">
+            <column name="title" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="title" type="varchar">
+            <column name="description" type="text"/>
+            <column name="create" type="date">
                 <constraints nullable="false"/>
             </column>
+            <column name="change" type="date"/>
+            <column name="remove" type="date"/>
+            <column name="rating" type="int"/>
+            <column name="tag" type="varchar(255)"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>

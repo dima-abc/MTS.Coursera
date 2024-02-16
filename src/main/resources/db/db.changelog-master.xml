@@ -9,6 +9,11 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
 http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
 http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
 
-    <include file="changelog/001_ddl_create_table_course.xml" relativeToChangelogFile="true"/>
-    <include file="changelog/002_ddl_create_table_lesson.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/001_ddl_create_table_user.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/002_ddl_create_table_course.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/003_ddl_create_table_coures_users.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/004_ddl_create_table_module.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/005_ddl_create_table_theme.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/006_ddl_create_table_lesson.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/007_ddl_create_table_rating.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

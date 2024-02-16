@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.course</OriginalElement>
+  <nodes>
+    <node x="-1082.723790322581" y="490.5564516129033">81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.lesson</node>
+    <node x="-727.887992831541" y="192.5806451612903">81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.rating</node>
+    <node x="-1255.8234767025087" y="-283.46774193548384">81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.course</node>
+    <node x="-1317.4354838709678" y="192.5806451612903">81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.module</node>
+    <node x="-806.887992831541" y="-331.46774193548384">81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.user</node>
+    <node x="-1048.473790322581" y="192.5806451612903">81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.theme</node>
+    <node x="-1048.473790322581" y="-283.46774193548384">81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.courses_users</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.rating" target="81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.user" relationship="REFERENCES">
+      <point x="32.75" y="-68.0" />
+      <point x="-629.637992831541" y="1.0" />
+      <point x="-701.887992831541" y="1.0" />
+      <point x="0.0" y="140.0" />
+    </edge>
+    <edge source="81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.courses_users" target="81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.course" relationship="REFERENCES">
+      <point x="-38.75" y="-56.0" />
+      <point x="-1009.723790322581" y="11.0" />
+      <point x="-1185.8234767025087" y="11.0" />
+      <point x="0.0" y="116.0" />
+    </edge>
+    <edge source="81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.courses_users" target="81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.user" relationship="REFERENCES">
+      <point x="38.75" y="-56.0" />
+      <point x="-932.223790322581" y="1.0" />
+      <point x="-701.887992831541" y="1.0" />
+      <point x="0.0" y="140.0" />
+    </edge>
+    <edge source="81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.module" target="81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.course" relationship="REFERENCES">
+      <point x="0.0" y="-104.0" />
+      <point x="-1247.4354838709678" y="11.0" />
+      <point x="-1185.8234767025087" y="11.0" />
+      <point x="0.0" y="116.0" />
+    </edge>
+    <edge source="81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.lesson" target="81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.theme" relationship="REFERENCES">
+      <point x="0.0" y="-80.0" />
+      <point x="-1012.723790322581" y="546.0" />
+      <point x="-981.473790322581" y="546.0" />
+      <point x="0.0" y="116.0" />
+    </edge>
+    <edge source="81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.theme" target="81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.module" relationship="REFERENCES">
+      <point x="0.0" y="-116.0" />
+      <point x="-981.473790322581" y="264.0" />
+      <point x="-1247.4354838709678" y="264.0" />
+      <point x="0.0" y="104.0" />
+    </edge>
+    <edge source="81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.rating" target="81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.course" relationship="REFERENCES">
+      <point x="-32.75" y="-68.0" />
+      <point x="-695.137992831541" y="11.0" />
+      <point x="-1185.8234767025087" y="11.0" />
+      <point x="0.0" y="116.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="-944.0" y="226.0" />
+  <SelectedNodes>
+    <node>81c03f57-5c3b-4307-8c3a-54f5a4015f24.TABLE:db_courses.my_courses.user</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

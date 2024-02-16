@@ -43,7 +43,7 @@ public class User implements Serializable {
     private String password;
     @Column(name = "name_surname")
     private String nameSurname;
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
     @Column(name = "avatar")
     private String avatar;
@@ -53,7 +53,12 @@ public class User implements Serializable {
     private LocalDate change;
     @Column(name = "remove")
     private LocalDate remove;
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany
+    @JoinTable(
+            name = "courses_users",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "course_id")}
+    )
     private Set<Course> courses;
     @Column(name = "access_admin")
     private boolean accessAdmin;

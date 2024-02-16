@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 /**
  * !!! Модель Course - курс !!!
@@ -38,11 +39,16 @@ public class Course implements Serializable {
     private Long id;
     @Column(name = "title", nullable = false)
     private String title;
+    @Lob
     @Column(name = "description")
     private String description;
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    @ManyToMany
+    @JoinTable(
+            name = "courses_users",
+            joinColumns = {@JoinColumn(name = "course_id")},
+            inverseJoinColumns = {@JoinColumn(name = "user_id")}
+    )
+    private Set<User> users;
     @Column(name = "create", nullable = false)
     private LocalDate create;
     @Column(name = "change")
@@ -55,5 +61,4 @@ public class Course implements Serializable {
     private List<Module> modules;
     @Column(name = "tag")
     private String tag;
-
 }

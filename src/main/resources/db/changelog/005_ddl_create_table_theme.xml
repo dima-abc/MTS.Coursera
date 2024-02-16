@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="16022024_005" author="dima_abc">
+        <createTable tableName="theme" schemaName="my_courses">
+            <column name="id" type="bigserial" autoIncrement="true">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="title" type="varchar"/>
+            <column name="description" type="text"/>
+            <column name="create" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="change" type="date"/>
+            <column name="remove" type="date"/>
+            <column name="content" type="varchar"/>
+            <column name="module_id" type="bigserial">
+                <constraints nullable="false"
+                             referencedTableSchemaName="my_courses"
+                             referencedTableName="module"
+                             referencedColumnNames="id"
+                             foreignKeyName="fk_theme_module"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
