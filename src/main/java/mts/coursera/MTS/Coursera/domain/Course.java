@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -39,16 +40,20 @@ public class Course implements Serializable {
     private String title;
     @Column(name = "description")
     private String description;
-    @ManyToOne()
-    private DateUser create;
-    @ManyToOne()
-    private DateUser change;
-    @ManyToOne()
-    private DateUser remove;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+    @Column(name = "create", nullable = false)
+    private LocalDate create;
+    @Column(name = "change")
+    private LocalDate change;
+    @Column(name = "remove")
+    private LocalDate remove;
     @Column(name = "rating")
     private int rating;
     @OneToMany(mappedBy = "course", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<Module> modules;
-    @Column(name = "author", nullable = false)
-    private String author;
+    @Column(name = "tag")
+    private String tag;
+
 }

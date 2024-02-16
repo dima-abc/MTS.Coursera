@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -31,7 +32,7 @@ import java.util.Set;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,12 +47,12 @@ public class User {
     private String email;
     @Column(name = "avatar")
     private String avatar;
-    @Column(name = "create")
+    @Column(name = "create", nullable = false)
     private LocalDate create;
-    @ManyToOne()
-    private DateUser change;
-    @ManyToOne()
-    private DateUser remove;
+    @Column(name = "change")
+    private LocalDate change;
+    @Column(name = "remove")
+    private LocalDate remove;
     @ManyToMany(mappedBy = "users")
     private Set<Course> courses;
     @Column(name = "access_admin")

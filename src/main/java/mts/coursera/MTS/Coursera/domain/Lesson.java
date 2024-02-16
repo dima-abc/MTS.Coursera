@@ -36,6 +36,9 @@ public class Lesson implements Serializable {
     @Lob
     @Column(name = "text")
     private String text;
+    @Column(name = "content")
+    private String content;
     @ManyToOne(optional = false)
-    private Course course;
+    @JoinColumn(name = "theme_id", referencedColumnName = "id")
+    private Theme theme;
 }
