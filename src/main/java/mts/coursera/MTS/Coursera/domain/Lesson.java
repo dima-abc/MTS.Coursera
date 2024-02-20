@@ -25,7 +25,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "lesson")
+@Table(name = "lesson", schema = "my_courses")
 public class Lesson implements Serializable {
     @EqualsAndHashCode.Include
     @Id
@@ -33,12 +33,11 @@ public class Lesson implements Serializable {
     private Long id;
     @Column(name = "title")
     private String title;
-    @Lob
     @Column(name = "description")
     private String description;
     @Column(name = "content")
     private String content;
-    @ManyToOne(optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "theme_id", referencedColumnName = "id")
     private Theme theme;
 }

@@ -27,7 +27,7 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "theme")
+@Table(name = "theme", schema = "my_courses")
 public class Theme implements Serializable {
     @EqualsAndHashCode.Include
     @Id
@@ -35,7 +35,6 @@ public class Theme implements Serializable {
     private Long id;
     @Column(name = "title")
     private String title;
-    @Lob
     @Column(name = "description")
     private String description;
     @Column(name = "create", nullable = false)
@@ -52,4 +51,7 @@ public class Theme implements Serializable {
     @OneToMany(mappedBy = "theme", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<Lesson> lesson;
 
+    public Theme(Long id) {
+        this.id = id;
+    }
 }

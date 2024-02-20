@@ -4,9 +4,10 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import mts.coursera.MTS.Coursera.domain.Course;
+import mts.coursera.MTS.Coursera.dto.CourseDto;
 import mts.coursera.MTS.Coursera.dto.CourseRequestToCreate;
 import mts.coursera.MTS.Coursera.dto.CourseRequestToUpdate;
-import mts.coursera.MTS.Coursera.service.CourseService;
+import mts.coursera.MTS.Coursera.service.CourseServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,10 +21,10 @@ import java.util.Objects;
 @RequestMapping("/courses")
 @AllArgsConstructor
 public class CourseController {
-    private final CourseService courseService;
+    private final CourseServiceImpl courseService;
 
     @GetMapping("")
-    public List<Course> courseTable() {
+    public List<CourseDto> courseTable() {
         return courseService.findAll();
     }
 

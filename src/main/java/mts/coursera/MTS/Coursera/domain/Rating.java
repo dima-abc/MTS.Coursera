@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "rating")
+@Table(name = "rating", schema = "my_courses")
 public class Rating {
     @EqualsAndHashCode.Include
     @Id

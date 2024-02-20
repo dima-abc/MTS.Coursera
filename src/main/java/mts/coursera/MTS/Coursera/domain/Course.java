@@ -31,7 +31,7 @@ import java.util.Set;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "course", schema = "my_course")
+@Table(name = "course", schema = "my_courses")
 public class Course implements Serializable {
     @EqualsAndHashCode.Include
     @Id
@@ -39,12 +39,11 @@ public class Course implements Serializable {
     private Long id;
     @Column(name = "title", nullable = false)
     private String title;
-    @Lob
     @Column(name = "description")
     private String description;
     @ManyToMany
     @JoinTable(
-            name = "courses_users",
+            name = "courses_users", schema = "my_courses",
             joinColumns = {@JoinColumn(name = "course_id")},
             inverseJoinColumns = {@JoinColumn(name = "user_id")}
     )

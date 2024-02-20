@@ -4,7 +4,7 @@ import mts.coursera.MTS.Coursera.domain.Lesson;
 import org.springframework.data.repository.CrudRepository;
 
 /**
- * Repository модели Lesson
+ * LessonRepositoryDB слой репозитория для работы с базой данных модели Lesson
  *
  * @author Dmitry Stepanov, user Dmitry
  * @since 16.02.2024

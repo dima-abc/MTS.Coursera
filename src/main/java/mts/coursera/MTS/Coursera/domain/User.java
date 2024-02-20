@@ -31,7 +31,7 @@ import java.util.Set;
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "user")
+@Table(name = "user", schema = "my_courses")
 public class User implements Serializable {
     @EqualsAndHashCode.Include
     @Id
@@ -53,12 +53,7 @@ public class User implements Serializable {
     private LocalDate change;
     @Column(name = "remove")
     private LocalDate remove;
-    @ManyToMany
-    @JoinTable(
-            name = "courses_users",
-            joinColumns = {@JoinColumn(name = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "course_id")}
-    )
+    @ManyToMany(mappedBy = "users")
     private Set<Course> courses;
     @Column(name = "access_admin")
     private boolean accessAdmin;

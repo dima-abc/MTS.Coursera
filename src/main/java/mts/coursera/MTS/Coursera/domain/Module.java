@@ -26,7 +26,7 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "module")
+@Table(name = "module", schema = "my_courses")
 public class Module implements Serializable {
     @EqualsAndHashCode.Include
     @Id
@@ -34,7 +34,6 @@ public class Module implements Serializable {
     private Long id;
     @Column(name = "title")
     private String title;
-    @Lob
     @Column(name = "description")
     private String description;
     @Column(name = "create", nullable = false)
@@ -43,7 +42,7 @@ public class Module implements Serializable {
     private LocalDate change;
     @Column(name = "remove")
     private LocalDate remove;
-    @ManyToOne(optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "course_id", referencedColumnName = "id")
     private Course course;
     @OneToMany(mappedBy = "module", orphanRemoval = true, cascade = CascadeType.ALL)
